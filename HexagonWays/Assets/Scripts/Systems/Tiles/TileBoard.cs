@@ -1,31 +1,30 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Tile;
 using UnityEngine;
 
-namespace System.Grid
+namespace System.Tiles
 {
-    public class GridBoard : MonoBehaviour
+    public class TileBoard : MonoBehaviour
     {
-        private readonly List<HexagonTile> _hexagonTiles = new List<HexagonTile>();
+        private readonly List<Tile> _tileList = new List<Tile>();
 
         private void Awake()
         {
             ETile.OnTileStart.AddListener(AddTile);
-            ETile.OnTileClick.AddListener(OnTileClicked);
+            ETile.OnTileClicked.AddListener(OnTileClicked);
         }
 
 
-        private void AddTile(HexagonTile hexagonTile)
+        private void AddTile(Tile tile)
         {
-            _hexagonTiles.Add(hexagonTile);
+            _tileList.Add(tile);
         }
 
-        private void OnTileClicked(HexagonTile clickedTile)
+        private void OnTileClicked(Tile clickedTile)
         {
-            if (_hexagonTiles.Any(o => o.IsSelected))
+            if (_tileList.Any(o => o.IsSelected))
             {
-                var selectedTile = _hexagonTiles.FirstOrDefault(o => o.IsSelected);
+                var selectedTile = _tileList.FirstOrDefault(o => o.IsSelected);
 
                 if (selectedTile == clickedTile)
                 {
@@ -48,7 +47,7 @@ namespace System.Grid
 
         private void DeselectAll()
         {
-            foreach (var tile in _hexagonTiles)
+            foreach (var tile in _tileList.Where(o => o.IsSelected))
             {
                 tile.DeselectTile();
             }

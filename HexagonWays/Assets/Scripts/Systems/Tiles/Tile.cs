@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
-namespace System.Tile
+namespace System.Tiles
 {
-    public class HexagonTile : MonoBehaviour
+    public class Tile : MonoBehaviour
     {
         public bool IsSelected { get; private set; }
 
         [SerializeField] private Transform _mesh;
 
+        
         private void Start()
         {
             ETile.OnTileStart.Invoke(this);
@@ -15,9 +16,10 @@ namespace System.Tile
 
         private void OnMouseDown()
         {
-            ETile.OnTileClick.Invoke(this);
+            ETile.OnTileClicked.Invoke(this);
         }
 
+        
         public void SelectTile()
         {
             IsSelected = true;
