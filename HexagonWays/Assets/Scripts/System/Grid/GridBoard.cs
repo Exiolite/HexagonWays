@@ -34,8 +34,8 @@ namespace System.Grid
                 else
                 {
                     var hexagonTilePosition = clickedTile.transform.position;
-                    clickedTile.transform.position = selectedTile.transform.position;
-                    selectedTile.transform.position = hexagonTilePosition;
+                    clickedTile.SetPosition(selectedTile.transform.position);
+                    selectedTile.SetPosition(hexagonTilePosition);
                     DeselectAll();
                 }
             }
