@@ -29,5 +29,15 @@ namespace System.Tile
             IsSelected = false;
             _mesh.localPosition = new Vector3(0,0,0);
         }
+        
+        public void Rotate()
+        {
+            transform.RotateAround(transform.position, Vector3.up, 60);
+        }
+        
+        public void SetPosition(Vector3 position)
+        {
+            transform.position = position;
+        }
     }
 }
