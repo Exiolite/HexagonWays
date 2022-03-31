@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace System.Tiles
+namespace Systems.Tiles
 {
     public class TileBoard : MonoBehaviour
     {

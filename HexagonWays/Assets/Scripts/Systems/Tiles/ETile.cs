@@ -1,6 +1,6 @@
 ﻿using UnityEngine.Events;
 
-namespace System.Tiles
+namespace Systems.Tiles
 {
     public static class ETile
     {
