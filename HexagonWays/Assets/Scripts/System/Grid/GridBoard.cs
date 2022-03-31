@@ -29,7 +29,7 @@ namespace System.Grid
 
                 if (selectedTile == clickedTile)
                 {
-                    clickedTile.transform.RotateAround(clickedTile.transform.position, Vector3.up, 60);
+                    clickedTile.transform.Rotate();
                 }
                 else
                 {
